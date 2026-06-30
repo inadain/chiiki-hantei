@@ -13,69 +13,36 @@
     min-height: 100vh;
     padding: 16px;
   }
-
-  .app {
-    max-width: 540px;
-    margin: 0 auto;
-  }
+  .app { max-width: 540px; margin: 0 auto; }
 
   .app-header {
-    background: #1e3a5f;
-    color: white;
-    border-radius: 10px;
-    padding: 12px 18px;
-    margin-bottom: 14px;
+    background: #1e3a5f; color: white;
+    border-radius: 10px; padding: 12px 18px; margin-bottom: 14px;
   }
   .app-header h1 { font-size: 14pt; font-weight: 700; }
   .app-header p  { font-size: 8.5pt; opacity: 0.8; margin-top: 3px; }
 
-  /* 入力カード */
   .card {
-    background: white;
-    border-radius: 10px;
-    padding: 14px 16px;
-    margin-bottom: 10px;
+    background: white; border-radius: 10px;
+    padding: 14px 16px; margin-bottom: 10px;
     box-shadow: 0 1px 4px rgba(0,0,0,.08);
   }
   .card-title {
-    font-size: 10pt;
-    font-weight: 700;
-    color: #1e3a5f;
-    border-left: 4px solid #1e3a5f;
-    padding-left: 8px;
-    margin-bottom: 10px;
+    font-size: 10pt; font-weight: 700; color: #1e3a5f;
+    border-left: 4px solid #1e3a5f; padding-left: 8px; margin-bottom: 10px;
   }
   .card-title .sub {
-    font-size: 8pt;
-    font-weight: 400;
-    color: #64748b;
-    display: block;
-    margin-top: 2px;
+    font-size: 8pt; font-weight: 400; color: #64748b; display: block; margin-top: 2px;
   }
 
-  /* ボタングループ */
-  .btn-group {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
+  .btn-group { display: flex; gap: 8px; flex-wrap: wrap; }
   .btn-group.col { flex-direction: column; }
   .sel-btn {
-    flex: 1;
-    min-width: 0;
-    padding: 10px 8px;
-    border-radius: 8px;
-    border: 2px solid #cbd5e1;
-    background: #f8fafc;
-    font-size: 9.5pt;
-    font-weight: 700;
-    color: #334155;
-    cursor: pointer;
-    text-align: center;
-    transition: all .15s;
-    line-height: 1.4;
-    -webkit-tap-highlight-color: transparent;
-    user-select: none;
+    flex: 1; min-width: 0; padding: 10px 8px;
+    border-radius: 8px; border: 2px solid #cbd5e1; background: #f8fafc;
+    font-size: 9.5pt; font-weight: 700; color: #334155; cursor: pointer;
+    text-align: center; transition: all .15s; line-height: 1.4;
+    -webkit-tap-highlight-color: transparent; user-select: none;
   }
   .sel-btn:active { transform: scale(.97); }
   .sel-btn.active-g { background: #dcfce7; border-color: #16a34a; color: #14532d; }
@@ -84,72 +51,85 @@
   .sel-btn.active-r { background: #fee2e2; border-color: #dc2626; color: #991b1b; }
   .sel-btn.active-s { background: #f1f5f9; border-color: #64748b; color: #334155; }
 
-  /* 追加質問（初期非表示） */
   .extra { display: none; }
   .extra.show { display: block; }
 
   /* 結果カード */
   .result-card {
-    border-radius: 12px;
-    padding: 18px 18px;
-    margin-bottom: 10px;
-    text-align: center;
-    min-height: 80px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    transition: all .2s;
+    border-radius: 12px; padding: 16px 18px;
+    margin-bottom: 10px; transition: all .2s;
   }
   .result-card.wait {
-    background: #f1f5f9;
-    border: 2px dashed #94a3b8;
-    color: #94a3b8;
-    font-size: 10pt;
+    background: #f1f5f9; border: 2px dashed #94a3b8;
+    display: flex; align-items: center; gap: 12px;
+    color: #94a3b8; font-size: 10pt; font-weight: 700; min-height: 60px;
   }
-  .result-card.r38 {
-    background: #d1fae5;
-    border: 3px solid #059669;
+  .result-card.wait .wait-icon { font-size: 22pt; }
+
+  /* 結果ヘッダー部分 */
+  .res-head {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 10px;
   }
-  .result-card.r28 {
-    background: #dbeafe;
-    border: 3px solid #2563eb;
+  .res-icon { font-size: 26pt; flex-shrink: 0; }
+  .res-main { font-size: 13pt; font-weight: 700; line-height: 1.35; }
+  .res-sub  { font-size: 8.5pt; color: #555; margin-top: 3px; line-height: 1.5; }
+
+  /* アクション指示（何をすべきか） */
+  .res-action {
+    border-radius: 8px; padding: 10px 14px; line-height: 1.7;
   }
-  .result-card.r-change38 {
-    background: #d1fae5;
-    border: 3px solid #059669;
+  .res-action .act-label {
+    font-size: 8pt; font-weight: 700; opacity: 0.65;
+    text-transform: uppercase; letter-spacing: 0.05em;
+    display: block; margin-bottom: 4px;
   }
-  .result-card.r-keep28 {
-    background: #fef9c3;
-    border: 3px solid #b45309;
+  .res-action .act-text {
+    font-size: 11pt; font-weight: 700;
   }
-  .result-card.r-none {
-    background: #f1f5f9;
-    border: 3px solid #64748b;
-  }
-  .result-card.r-hasekawa {
-    background: #ede9fe;
-    border: 3px solid #7c3aed;
+  .res-action .act-detail {
+    font-size: 9pt; margin-top: 4px; line-height: 1.6; opacity: 0.8;
   }
 
-  .result-icon { font-size: 28pt; }
-  .result-main { font-size: 14pt; font-weight: 700; }
-  .result-sub  { font-size: 9pt; color: #444; line-height: 1.6; }
-  .result-note { font-size: 8.5pt; background: rgba(0,0,0,.07); border-radius: 5px; padding: 5px 10px; color: #333; line-height: 1.6; }
+  /* テーマ別カラー */
+  .theme-38 { background: #d1fae5; border: 3px solid #059669; }
+  .theme-38 .res-action { background: rgba(5,150,105,.12); }
+  .theme-38 .act-label  { color: #065f46; }
+  .theme-38 .act-text   { color: #065f46; }
 
-  /* リセットボタン */
+  .theme-28 { background: #dbeafe; border: 3px solid #2563eb; }
+  .theme-28 .res-action { background: rgba(37,99,235,.12); }
+  .theme-28 .act-label  { color: #1e3a8a; }
+  .theme-28 .act-text   { color: #1e3a8a; }
+
+  .theme-chg38 { background: #ecfdf5; border: 3px solid #059669; }
+  .theme-chg38 .res-action { background: rgba(5,150,105,.12); }
+  .theme-chg38 .act-label  { color: #065f46; }
+  .theme-chg38 .act-text   { color: #065f46; }
+
+  .theme-keep28 { background: #fef9c3; border: 3px solid #d97706; }
+  .theme-keep28 .res-action { background: rgba(217,119,6,.12); }
+  .theme-keep28 .act-label  { color: #78350f; }
+  .theme-keep28 .act-text   { color: #78350f; }
+
+  .theme-ask { background: #ede9fe; border: 3px solid #7c3aed; }
+  .theme-ask .res-action { background: rgba(124,58,237,.12); }
+  .theme-ask .act-label  { color: #4c1d95; }
+  .theme-ask .act-text   { color: #4c1d95; }
+
+  .theme-none { background: #f1f5f9; border: 3px solid #64748b; }
+  .theme-none .res-action { background: rgba(100,116,139,.12); }
+  .theme-none .act-label  { color: #334155; }
+  .theme-none .act-text   { color: #334155; }
+
+  .theme-wait2 { background: #fff7ed; border: 3px solid #f59e0b; }
+  .theme-wait2 .res-action { background: rgba(245,158,11,.12); }
+  .theme-wait2 .act-label  { color: #78350f; }
+  .theme-wait2 .act-text   { color: #78350f; }
+
   .reset-btn {
-    width: 100%;
-    padding: 12px;
-    border-radius: 8px;
-    border: 2px solid #94a3b8;
-    background: white;
-    font-size: 10pt;
-    font-weight: 700;
-    color: #475569;
-    cursor: pointer;
-    margin-top: 4px;
+    width: 100%; padding: 12px; border-radius: 8px;
+    border: 2px solid #94a3b8; background: white;
+    font-size: 10pt; font-weight: 700; color: #475569; cursor: pointer;
   }
   .reset-btn:active { background: #f1f5f9; }
 </style>
@@ -159,97 +139,91 @@
 
   <div class="app-header">
     <h1>地域包括診療加算　判定アプリ</h1>
-    <p>受付票の項目を選択すると判定結果が表示されます</p>
+    <p>受付票の項目を選択すると、すべき対応が表示されます</p>
   </div>
 
-  <!-- 結果（常に上部に表示） -->
+  <!-- 結果（常に上部） -->
   <div class="result-card wait" id="result">
-    <div class="result-icon">🔍</div>
-    <div class="result-main">受付票の項目を選択してください</div>
+    <span class="wait-icon">🔍</span>受付票の項目を選択してください
   </div>
 
   <!-- STEP1 -->
   <div class="card">
-    <div class="card-title">
-      STEP 1　現在の算定状況
+    <div class="card-title">STEP 1　現在の算定状況
       <span class="sub">レセコンで確認した当月の算定状況</span>
     </div>
     <div class="btn-group col" id="step1">
-      <button class="sel-btn" data-key="step1" data-val="ninchi" onclick="select(this)">認知症加算（38点）算定中</button>
-      <button class="sel-btn" data-key="step1" data-val="mansho" onclick="select(this)">慢性疾患加算（28点）算定中</button>
-      <button class="sel-btn" data-key="step1" data-val="nashi"  onclick="select(this)">加算なし（初診・未算定）</button>
+      <button class="sel-btn" data-key="step1" data-val="ninchi"  onclick="sel(this)">認知症加算（38点）算定中</button>
+      <button class="sel-btn" data-key="step1" data-val="mansho"  onclick="sel(this)">慢性疾患加算（28点）算定中</button>
+      <button class="sel-btn" data-key="step1" data-val="nashi"   onclick="sel(this)">加算なし（初診・未算定）</button>
     </div>
   </div>
 
-  <!-- STEP2 -->
+  <!-- STEP2 ① -->
   <div class="card">
-    <div class="card-title">
-      STEP 2 ①　認知症の病名
+    <div class="card-title">STEP 2 ①　認知症の病名
       <span class="sub">カルテの傷病名欄で確認</span>
     </div>
     <div class="btn-group" id="s2_1">
-      <button class="sel-btn" data-key="s2_1" data-val="ari"  onclick="select(this)">あり</button>
-      <button class="sel-btn" data-key="s2_1" data-val="nasi" onclick="select(this)">なし</button>
+      <button class="sel-btn" data-key="s2_1" data-val="ari"  onclick="sel(this)">あり</button>
+      <button class="sel-btn" data-key="s2_1" data-val="nasi" onclick="sel(this)">なし</button>
     </div>
   </div>
 
+  <!-- STEP2 ② -->
   <div class="card">
-    <div class="card-title">
-      STEP 2 ②　慢性5疾患の病名
+    <div class="card-title">STEP 2 ②　慢性5疾患の病名
       <span class="sub">高血圧・脂質異常・糖尿病・慢性心不全・CKD</span>
     </div>
     <div class="btn-group col" id="s2_2">
-      <button class="sel-btn" data-key="s2_2" data-val="2shu" onclick="select(this)">2種以上あり</button>
-      <button class="sel-btn" data-key="s2_2" data-val="1shu" onclick="select(this)">1種あり</button>
-      <button class="sel-btn" data-key="s2_2" data-val="nasi" onclick="select(this)">なし</button>
+      <button class="sel-btn" data-key="s2_2" data-val="2shu" onclick="sel(this)">2種以上あり</button>
+      <button class="sel-btn" data-key="s2_2" data-val="1shu" onclick="sel(this)">1種あり</button>
+      <button class="sel-btn" data-key="s2_2" data-val="nasi" onclick="sel(this)">なし</button>
     </div>
   </div>
 
+  <!-- STEP2 ③ -->
   <div class="card">
-    <div class="card-title">
-      STEP 2 ③　介護サービス利用
+    <div class="card-title">STEP 2 ③　介護サービス利用
       <span class="sub">プラカード指差し確認の結果</span>
     </div>
     <div class="btn-group col" id="s2_3">
-      <button class="sel-btn" data-key="s2_3" data-val="ari"   onclick="select(this)">あり（利用中）</button>
-      <button class="sel-btn" data-key="s2_3" data-val="nasi"  onclick="select(this)">なし</button>
-      <button class="sel-btn" data-key="s2_3" data-val="fumei" onclick="select(this)">不明・39歳以下</button>
+      <button class="sel-btn" data-key="s2_3" data-val="ari"   onclick="sel(this)">あり（利用中）</button>
+      <button class="sel-btn" data-key="s2_3" data-val="nasi"  onclick="sel(this)">なし</button>
+      <button class="sel-btn" data-key="s2_3" data-val="fumei" onclick="sel(this)">不明・39歳以下</button>
     </div>
   </div>
 
-  <!-- 追加質問A：慢性以外の疾患あり？（B/C で慢性1種なし or 加算なし側） -->
+  <!-- 追加A：慢性以外の疾患 -->
   <div class="card extra" id="extra_kaigai">
-    <div class="card-title">
-      追加確認　慢性5疾患以外の疾患
-      <span class="sub">カルテに慢性5疾患以外の傷病名があるか</span>
+    <div class="card-title">追加確認　慢性5疾患以外の疾患
+      <span class="sub">傷病名欄に慢性5疾患以外の病名があるか</span>
     </div>
     <div class="btn-group" id="kaigai">
-      <button class="sel-btn" data-key="kaigai" data-val="ari"  onclick="select(this)">あり</button>
-      <button class="sel-btn" data-key="kaigai" data-val="nasi" onclick="select(this)">なし</button>
+      <button class="sel-btn" data-key="kaigai" data-val="ari"  onclick="sel(this)">あり</button>
+      <button class="sel-btn" data-key="kaigai" data-val="nasi" onclick="sel(this)">なし</button>
     </div>
   </div>
 
-  <!-- 追加質問B：内服5種以下？ -->
+  <!-- 追加B：内服5種以下？ -->
   <div class="card extra" id="extra_naifuku">
-    <div class="card-title">
-      追加確認　内服薬の種類数
+    <div class="card-title">追加確認　内服薬の種類数
       <span class="sub">1銘柄＝1種・一般名でカウント・臨時薬除外</span>
     </div>
     <div class="btn-group" id="naifuku">
-      <button class="sel-btn" data-key="naifuku" data-val="5ika"   onclick="select(this)">5種以下</button>
-      <button class="sel-btn" data-key="naifuku" data-val="6ijo"   onclick="select(this)">6種以上</button>
+      <button class="sel-btn" data-key="naifuku" data-val="5ika" onclick="sel(this)">5種以下</button>
+      <button class="sel-btn" data-key="naifuku" data-val="6ijo" onclick="sel(this)">6種以上</button>
     </div>
   </div>
 
-  <!-- 追加質問C：認知症の疑い？（B-NOのみ） -->
+  <!-- 追加C：認知症の疑い（ルートB-NOのみ） -->
   <div class="card extra" id="extra_gigu">
-    <div class="card-title">
-      追加確認　認知症の疑い
-      <span class="sub">ルートB（28点算定中）・認知症病名なし・介護なしの場合</span>
+    <div class="card-title">追加確認　認知症の疑い
+      <span class="sub">28点算定中・認知症病名なし・介護なしの場合のみ</span>
     </div>
     <div class="btn-group" id="gigu">
-      <button class="sel-btn" data-key="gigu" data-val="ari"  onclick="select(this)">疑いあり</button>
-      <button class="sel-btn" data-key="gigu" data-val="nasi" onclick="select(this)">疑いなし</button>
+      <button class="sel-btn" data-key="gigu" data-val="ari"  onclick="sel(this)">疑いあり</button>
+      <button class="sel-btn" data-key="gigu" data-val="nasi" onclick="sel(this)">疑いなし</button>
     </div>
   </div>
 
@@ -258,196 +232,170 @@
 </div>
 
 <script>
-const state = {
-  step1: null, s2_1: null, s2_2: null, s2_3: null,
-  kaigai: null, naifuku: null, gigu: null
+const S = { step1:null, s2_1:null, s2_2:null, s2_3:null, kaigai:null, naifuku:null, gigu:null };
+
+const COLOR = {
+  step1_ninchi:'g', step1_mansho:'b', step1_nashi:'y',
+  s2_1_ari:'r', s2_1_nasi:'s',
+  s2_2_2shu:'b', s2_2_1shu:'y', s2_2_nasi:'s',
+  s2_3_ari:'g', s2_3_nasi:'s', s2_3_fumei:'s',
+  kaigai_ari:'y', kaigai_nasi:'s',
+  naifuku_5ika:'g', naifuku_6ijo:'r',
+  gigu_ari:'r', gigu_nasi:'s'
 };
 
-function select(btn) {
-  const key = btn.dataset.key;
-  const val = btn.dataset.val;
-  state[key] = val;
-
-  // 同グループのアクティブを外す
-  document.querySelectorAll(`[data-key="${key}"]`).forEach(b => {
-    b.className = 'sel-btn';
-  });
-
-  // 色を選ぶ
-  const colorMap = {
-    step1_ninchi: 'g', step1_mansho: 'b', step1_nashi: 'y',
-    s2_1_ari: 'r', s2_1_nasi: 's',
-    s2_2_2shu: 'b', s2_2_1shu: 'y', s2_2_nasi: 's',
-    s2_3_ari: 'g', s2_3_nasi: 's', s2_3_fumei: 's',
-    kaigai_ari: 'y', kaigai_nasi: 's',
-    naifuku_5ika: 'g', naifuku_6ijo: 'r',
-    gigu_ari: 'r', gigu_nasi: 's'
-  };
-  const color = colorMap[`${key}_${val}`] || 's';
-  btn.classList.add(`active-${color}`);
-
+function sel(btn) {
+  const { key, val } = btn.dataset;
+  S[key] = val;
+  document.querySelectorAll(`[data-key="${key}"]`).forEach(b => b.className = 'sel-btn');
+  btn.classList.add(`active-${COLOR[`${key}_${val}`] || 's'}`);
   updateExtras();
   judge();
 }
 
 function needsKaigai() {
-  const { step1, s2_1, s2_2, s2_3 } = state;
-  const ninchiOrKaigo = s2_1 === 'ari' || s2_3 === 'ari';
-  if (step1 === 'mansho' && ninchiOrKaigo && s2_2 === 'nasi') return true;
-  if (step1 === 'nashi'  && ninchiOrKaigo && s2_2 === 'nasi') return true;
-  return false;
+  const nk = S.s2_1 === 'ari' || S.s2_3 === 'ari';
+  return (S.step1 === 'mansho' || S.step1 === 'nashi') && nk && S.s2_2 === 'nasi';
 }
-
-function needsNaifuku() {
-  if (!state.kaigai) return false;
-  return needsKaigai() && state.kaigai === 'ari';
-}
-
+function needsNaifuku() { return needsKaigai() && S.kaigai === 'ari'; }
 function needsGigu() {
-  const { step1, s2_1, s2_3 } = state;
-  if (step1 !== 'mansho') return false;
-  const ninchiOrKaigo = s2_1 === 'ari' || s2_3 === 'ari';
-  return !ninchiOrKaigo && s2_1 !== null && s2_3 !== null;
+  return S.step1 === 'mansho' && !(S.s2_1 === 'ari' || S.s2_3 === 'ari')
+      && S.s2_1 !== null && S.s2_3 !== null;
 }
 
 function updateExtras() {
-  const showKaigai  = needsKaigai();
-  const showNaifuku = needsNaifuku();
-  const showGigu    = needsGigu();
-
-  toggle('extra_kaigai',  showKaigai);
-  toggle('extra_naifuku', showNaifuku);
-  toggle('extra_gigu',    showGigu);
-
-  if (!showKaigai)  { state.kaigai  = null; clearGroup('kaigai'); }
-  if (!showNaifuku) { state.naifuku = null; clearGroup('naifuku'); }
-  if (!showGigu)    { state.gigu    = null; clearGroup('gigu'); }
+  const sk = needsKaigai(), sn = needsNaifuku(), sg = needsGigu();
+  tog('extra_kaigai', sk); if (!sk) { S.kaigai = null; clr('kaigai'); }
+  tog('extra_naifuku', sn); if (!sn) { S.naifuku = null; clr('naifuku'); }
+  tog('extra_gigu', sg);   if (!sg) { S.gigu = null;    clr('gigu'); }
 }
-
-function toggle(id, show) {
-  const el = document.getElementById(id);
-  if (show) el.classList.add('show'); else el.classList.remove('show');
-}
-
-function clearGroup(key) {
-  document.querySelectorAll(`[data-key="${key}"]`).forEach(b => b.className = 'sel-btn');
-}
+function tog(id, show) { document.getElementById(id).classList.toggle('show', show); }
+function clr(key) { document.querySelectorAll(`[data-key="${key}"]`).forEach(b => b.className = 'sel-btn'); }
 
 function judge() {
-  const { step1, s2_1, s2_2, s2_3, kaigai, naifuku, gigu } = state;
   const el = document.getElementById('result');
-
-  if (!step1 || !s2_1 || !s2_2 || !s2_3) {
-    setResult(el, 'wait', '🔍', '受付票の項目を選択してください', '');
-    return;
-  }
+  const { step1, s2_1, s2_2, s2_3, kaigai, naifuku, gigu } = S;
+  if (!step1 || !s2_1 || !s2_2 || !s2_3) { setWait(el); return; }
 
   // ルートA
   if (step1 === 'ninchi') {
-    setResult(el, 'r38', '✅', '認知症加算（38点）継続', '引き続き算定・確認不要');
+    show(el, 'theme-38', '✅', '認知症加算（38点）継続', '毎回の確認は不要です',
+      '引き続き38点を算定してください', '');
     return;
   }
 
-  const ninchiOrKaigo = s2_1 === 'ari' || s2_3 === 'ari';
+  const nk = s2_1 === 'ari' || s2_3 === 'ari';
 
-  // ルートB（慢性疾患加算28点 算定中）
+  // ルートB
   if (step1 === 'mansho') {
-    if (ninchiOrKaigo) {
+    if (nk) {
       if (s2_2 !== 'nasi') {
-        setResult(el, 'r-change38', '✅', '認知症加算（38点）に変更', '慢性疾患加算（28点）から変更　多剤不問');
+        show(el, 'theme-chg38', '✅', '認知症加算（38点）に変更できます', '慢性疾患加算（28点）→ 認知症加算（38点）',
+          '28点 → 38点 に変更してください', '多剤制限は不問です');
       } else {
-        // 慢性1種なし → 追加質問
-        if (!kaigai) {
-          setResult(el, 'wait', '❓', '追加確認が必要です', '「慢性5疾患以外の疾患」を確認してください');
-          return;
-        }
+        if (!kaigai) { setWait2(el, '❓', '追加確認が必要', '慢性5疾患以外の疾患をカルテで確認してください'); return; }
         if (kaigai === 'ari') {
-          if (!naifuku) {
-            setResult(el, 'wait', '❓', '追加確認が必要です', '「内服薬の種類数」を確認してください');
-            return;
-          }
+          if (!naifuku) { setWait2(el, '❓', '追加確認が必要', '内服薬の種類数を確認してください'); return; }
           if (naifuku === '5ika') {
-            setResult(el, 'r-change38', '✅', '認知症加算（38点）に変更', '慢性以外の疾患あり・内服5種以下の条件を満たす');
+            show(el, 'theme-chg38', '✅', '認知症加算（38点）に変更できます', '慢性以外の疾患あり・内服5種以下の条件を満たします',
+              '28点 → 38点 に変更してください', '');
           } else {
-            setResult(el, 'r-keep28', '⚠️', '慢性疾患加算（28点）のまま維持', '内服6種以上のため38点の条件不足');
+            show(el, 'theme-keep28', '⚠️', '今回は変更できません', '内服6種以上のため38点の条件不足',
+              '28点のまま維持してください', '内服薬を整理できれば次回以降38点へ変更可能です');
           }
         } else {
-          setResult(el, 'r-keep28', '⚠️', '慢性疾患加算（28点）のまま維持', '慢性5疾患・それ以外の疾患もなし');
+          show(el, 'theme-keep28', '⚠️', '今回は変更できません', '38点への変更条件が不足しています',
+            '28点のまま維持してください', '');
         }
       }
     } else {
-      // NO → 認知症の疑い？
-      if (!gigu) {
-        setResult(el, 'wait', '❓', '追加確認が必要です', '「認知症の疑い」を確認してください');
-        return;
-      }
+      if (!gigu) { setWait2(el, '❓', '追加確認が必要', '認知症の疑いがあるかどうかを確認してください'); return; }
       if (gigu === 'ari') {
-        setResult(el, 'r-hasekawa', '🧠', '長谷川式を検討（≦20点で認知症病名追加）', '病名追加後 → 認知症加算（38点）に変更');
+        show(el, 'theme-ask', '🧠', '認知症がないか確認してください', '認知症病名があれば38点に変更できます',
+          '長谷川式スコアを確認してください', '≦20点であれば認知症病名を追加し、28点 → 38点 に変更してください');
       } else {
-        setResult(el, 'r-keep28', '⚠️', '慢性疾患加算（28点）のまま維持', '次回再評価');
+        show(el, 'theme-keep28', '⚠️', '今回は変更できません', '28点の継続算定',
+          '28点のまま維持してください', '次回再評価をお願いします');
       }
     }
     return;
   }
 
-  // ルートC（加算なし・新規判定）
+  // ルートC
   if (step1 === 'nashi') {
-    if (ninchiOrKaigo) {
+    if (nk) {
       if (s2_2 !== 'nasi') {
-        setResult(el, 'r38', '✅', '認知症加算（38点）算定', '多剤不問');
+        show(el, 'theme-38', '✅', '認知症加算（38点）を算定できます', '今回から新規算定',
+          '今回から38点を算定してください', '多剤制限は不問です');
       } else {
-        if (!kaigai) {
-          setResult(el, 'wait', '❓', '追加確認が必要です', '「慢性5疾患以外の疾患」を確認してください');
-          return;
-        }
+        if (!kaigai) { setWait2(el, '❓', '追加確認が必要', '慢性5疾患以外の疾患をカルテで確認してください'); return; }
         if (kaigai === 'ari') {
-          if (!naifuku) {
-            setResult(el, 'wait', '❓', '追加確認が必要です', '「内服薬の種類数」を確認してください');
-            return;
-          }
+          if (!naifuku) { setWait2(el, '❓', '追加確認が必要', '内服薬の種類数を確認してください'); return; }
           if (naifuku === '5ika') {
-            setResult(el, 'r38', '✅', '認知症加算（38点）算定', '');
-          } else {
-            // 28点判定へ
-            judge28(el, s2_2, s2_3, '38点の条件不足のため28点を確認');
-          }
-        } else {
-          judge28(el, s2_2, s2_3, '38点の条件不足のため28点を確認');
-        }
+            show(el, 'theme-38', '✅', '認知症加算（38点）を算定できます', '慢性以外の疾患あり・内服5種以下の条件を満たします',
+              '今回から38点を算定してください', '');
+          } else { judge28(el, '38点の条件不足のため28点を確認'); }
+        } else { judge28(el, '38点の条件不足のため28点を確認'); }
       }
-    } else {
-      judge28(el, s2_2, s2_3, '');
-    }
+    } else { judge28(el, ''); }
   }
 }
 
-function judge28(el, s2_2, s2_3, reason) {
+function judge28(el, reason) {
+  const { s2_2, s2_3 } = S;
   if (s2_2 === '2shu') {
-    setResult(el, 'r28', '✅', '慢性疾患加算（28点）算定', reason || '慢性2種以上の条件を満たす');
+    show(el, 'theme-28', '✅', '慢性疾患加算（28点）を算定できます', reason || '慢性2種以上の条件を満たします',
+      '今回から28点を算定してください', '');
   } else if (s2_2 === '1shu' && s2_3 === 'ari') {
-    setResult(el, 'r28', '✅', '慢性疾患加算（28点）算定', (reason ? reason + '　' : '') + '慢性1種＋介護サービス利用の条件を満たす');
+    show(el, 'theme-28', '✅', '慢性疾患加算（28点）を算定できます', (reason ? reason + '　' : '') + '慢性1種＋介護サービス利用の条件を満たします',
+      '今回から28点を算定してください', '');
   } else {
-    setResult(el, 'r-none', '❌', '算定対象外', '慢性2種以上、または慢性1種＋介護の条件を満たさない');
+    show(el, 'theme-none', '❌', '算定対象外', '慢性2種以上、または慢性1種＋介護の条件を満たしません',
+      '今回は加算を算定できません', '');
   }
 }
 
-function setResult(el, cls, icon, main, sub) {
-  el.className = `result-card ${cls}`;
+function show(el, theme, icon, main, sub, actText, actDetail) {
+  el.className = `result-card ${theme}`;
   el.innerHTML = `
-    <div class="result-icon">${icon}</div>
-    <div class="result-main">${main}</div>
-    ${sub ? `<div class="result-note">${sub}</div>` : ''}
-  `;
+    <div class="res-head">
+      <div class="res-icon">${icon}</div>
+      <div>
+        <div class="res-main">${main}</div>
+        ${sub ? `<div class="res-sub">${sub}</div>` : ''}
+      </div>
+    </div>
+    <div class="res-action">
+      <span class="act-label">▶ すべきこと</span>
+      <div class="act-text">${actText}</div>
+      ${actDetail ? `<div class="act-detail">${actDetail}</div>` : ''}
+    </div>`;
+}
+
+function setWait(el) {
+  el.className = 'result-card wait';
+  el.innerHTML = `<span class="wait-icon">🔍</span>受付票の項目を選択してください`;
+}
+
+function setWait2(el, icon, main, detail) {
+  el.className = 'result-card theme-wait2';
+  el.innerHTML = `
+    <div class="res-head">
+      <div class="res-icon">${icon}</div>
+      <div><div class="res-main">${main}</div></div>
+    </div>
+    <div class="res-action">
+      <span class="act-label">▶ すべきこと</span>
+      <div class="act-text">${detail}</div>
+    </div>`;
 }
 
 function resetAll() {
-  Object.keys(state).forEach(k => state[k] = null);
+  Object.keys(S).forEach(k => S[k] = null);
   document.querySelectorAll('.sel-btn').forEach(b => b.className = 'sel-btn');
   document.querySelectorAll('.extra').forEach(e => e.classList.remove('show'));
-  const el = document.getElementById('result');
-  setResult(el, 'wait', '🔍', '受付票の項目を選択してください', '');
+  setWait(document.getElementById('result'));
 }
 </script>
-
 </body>
 </html>
