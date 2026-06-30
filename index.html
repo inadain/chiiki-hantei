@@ -54,84 +54,89 @@
   .extra { display: none; }
   .extra.show { display: block; }
 
-  /* 結果カード */
-  .result-card {
-    border-radius: 12px; padding: 16px 18px;
-    margin-bottom: 10px; transition: all .2s;
-  }
-  .result-card.wait {
-    background: #f1f5f9; border: 2px dashed #94a3b8;
-    display: flex; align-items: center; gap: 12px;
-    color: #94a3b8; font-size: 10pt; font-weight: 700; min-height: 60px;
-  }
-  .result-card.wait .wait-icon { font-size: 22pt; }
-
-  /* 結果ヘッダー部分 */
-  .res-head {
-    display: flex; align-items: center; gap: 12px; margin-bottom: 10px;
-  }
-  .res-icon { font-size: 26pt; flex-shrink: 0; }
-  .res-main { font-size: 13pt; font-weight: 700; line-height: 1.35; }
-  .res-sub  { font-size: 8.5pt; color: #555; margin-top: 3px; line-height: 1.5; }
-
-  /* アクション指示（何をすべきか） */
-  .res-action {
-    border-radius: 8px; padding: 10px 14px; line-height: 1.7;
-  }
-  .res-action .act-label {
-    font-size: 8pt; font-weight: 700; opacity: 0.65;
-    text-transform: uppercase; letter-spacing: 0.05em;
-    display: block; margin-bottom: 4px;
-  }
-  .res-action .act-text {
-    font-size: 11pt; font-weight: 700;
-  }
-  .res-action .act-detail {
-    font-size: 9pt; margin-top: 4px; line-height: 1.6; opacity: 0.8;
-  }
-
-  /* テーマ別カラー */
-  .theme-38 { background: #d1fae5; border: 3px solid #059669; }
-  .theme-38 .res-action { background: rgba(5,150,105,.12); }
-  .theme-38 .act-label  { color: #065f46; }
-  .theme-38 .act-text   { color: #065f46; }
-
-  .theme-28 { background: #dbeafe; border: 3px solid #2563eb; }
-  .theme-28 .res-action { background: rgba(37,99,235,.12); }
-  .theme-28 .act-label  { color: #1e3a8a; }
-  .theme-28 .act-text   { color: #1e3a8a; }
-
-  .theme-chg38 { background: #ecfdf5; border: 3px solid #059669; }
-  .theme-chg38 .res-action { background: rgba(5,150,105,.12); }
-  .theme-chg38 .act-label  { color: #065f46; }
-  .theme-chg38 .act-text   { color: #065f46; }
-
-  .theme-keep28 { background: #fef9c3; border: 3px solid #d97706; }
-  .theme-keep28 .res-action { background: rgba(217,119,6,.12); }
-  .theme-keep28 .act-label  { color: #78350f; }
-  .theme-keep28 .act-text   { color: #78350f; }
-
-  .theme-ask { background: #ede9fe; border: 3px solid #7c3aed; }
-  .theme-ask .res-action { background: rgba(124,58,237,.12); }
-  .theme-ask .act-label  { color: #4c1d95; }
-  .theme-ask .act-text   { color: #4c1d95; }
-
-  .theme-none { background: #f1f5f9; border: 3px solid #64748b; }
-  .theme-none .res-action { background: rgba(100,116,139,.12); }
-  .theme-none .act-label  { color: #334155; }
-  .theme-none .act-text   { color: #334155; }
-
-  .theme-wait2 { background: #fff7ed; border: 3px solid #f59e0b; }
-  .theme-wait2 .res-action { background: rgba(245,158,11,.12); }
-  .theme-wait2 .act-label  { color: #78350f; }
-  .theme-wait2 .act-text   { color: #78350f; }
-
   .reset-btn {
     width: 100%; padding: 12px; border-radius: 8px;
     border: 2px solid #94a3b8; background: white;
     font-size: 10pt; font-weight: 700; color: #475569; cursor: pointer;
+    margin-bottom: 14px;
   }
   .reset-btn:active { background: #f1f5f9; }
+
+  /* 区切り */
+  .divider {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 14px; color: #94a3b8; font-size: 8.5pt; font-weight: 700;
+  }
+  .divider::before, .divider::after {
+    content: ''; flex: 1; height: 1.5px; background: #cbd5e1;
+  }
+
+  /* 結果カード */
+  .result-card {
+    border-radius: 12px; padding: 18px 18px; margin-bottom: 10px;
+    transition: all .2s;
+  }
+  .result-card.wait {
+    background: #f1f5f9; border: 2px dashed #94a3b8;
+    display: flex; align-items: center; gap: 12px;
+    color: #94a3b8; font-size: 10pt; font-weight: 700; min-height: 70px;
+  }
+  .result-card.wait .wait-icon { font-size: 22pt; }
+
+  .res-head {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 12px;
+  }
+  .res-icon { font-size: 28pt; flex-shrink: 0; line-height: 1; }
+  .res-main { font-size: 13pt; font-weight: 700; line-height: 1.35; }
+  .res-sub  { font-size: 8.5pt; color: #555; margin-top: 4px; line-height: 1.5; }
+
+  .res-action {
+    border-radius: 8px; padding: 10px 14px; line-height: 1.7; margin-bottom: 8px;
+  }
+  .res-action .act-label {
+    font-size: 8pt; font-weight: 700; opacity: 0.6;
+    letter-spacing: 0.05em; display: block; margin-bottom: 4px;
+  }
+  .res-action .act-text   { font-size: 11pt; font-weight: 700; }
+  .res-action .act-detail { font-size: 9pt; margin-top: 4px; line-height: 1.6; opacity: 0.8; }
+
+  /* 同意書バッジ */
+  .dousho {
+    display: flex; align-items: center; gap: 10px;
+    background: #fef3c7; border: 2.5px solid #f59e0b;
+    border-radius: 8px; padding: 10px 14px;
+    font-size: 11pt; font-weight: 700; color: #78350f;
+  }
+  .dousho-icon { font-size: 20pt; flex-shrink: 0; }
+
+  /* テーマ */
+  .theme-38 { background: #d1fae5; border: 3px solid #059669; }
+  .theme-38 .res-action { background: rgba(5,150,105,.12); }
+  .theme-38 .act-label,.theme-38 .act-text { color: #065f46; }
+
+  .theme-28 { background: #dbeafe; border: 3px solid #2563eb; }
+  .theme-28 .res-action { background: rgba(37,99,235,.12); }
+  .theme-28 .act-label,.theme-28 .act-text { color: #1e3a8a; }
+
+  .theme-chg38 { background: #ecfdf5; border: 3px solid #059669; }
+  .theme-chg38 .res-action { background: rgba(5,150,105,.12); }
+  .theme-chg38 .act-label,.theme-chg38 .act-text { color: #065f46; }
+
+  .theme-keep28 { background: #fef9c3; border: 3px solid #d97706; }
+  .theme-keep28 .res-action { background: rgba(217,119,6,.12); }
+  .theme-keep28 .act-label,.theme-keep28 .act-text { color: #78350f; }
+
+  .theme-ask { background: #ede9fe; border: 3px solid #7c3aed; }
+  .theme-ask .res-action { background: rgba(124,58,237,.12); }
+  .theme-ask .act-label,.theme-ask .act-text { color: #4c1d95; }
+
+  .theme-none { background: #f1f5f9; border: 3px solid #64748b; }
+  .theme-none .res-action { background: rgba(100,116,139,.12); }
+  .theme-none .act-label,.theme-none .act-text { color: #334155; }
+
+  .theme-wait2 { background: #fff7ed; border: 3px solid #f59e0b; }
+  .theme-wait2 .res-action { background: rgba(245,158,11,.12); }
+  .theme-wait2 .act-label,.theme-wait2 .act-text { color: #78350f; }
 </style>
 </head>
 <body>
@@ -140,11 +145,6 @@
   <div class="app-header">
     <h1>地域包括診療加算　判定アプリ</h1>
     <p>受付票の項目を選択すると、すべき対応が表示されます</p>
-  </div>
-
-  <!-- 結果（常に上部） -->
-  <div class="result-card wait" id="result">
-    <span class="wait-icon">🔍</span>受付票の項目を選択してください
   </div>
 
   <!-- STEP1 -->
@@ -229,6 +229,12 @@
 
   <button class="reset-btn" onclick="resetAll()">↺ リセット</button>
 
+  <!-- 結果（下部） -->
+  <div class="divider">判定結果</div>
+  <div class="result-card wait" id="result">
+    <span class="wait-icon">🔍</span>上の項目をすべて選択すると結果が表示されます
+  </div>
+
 </div>
 
 <script>
@@ -265,7 +271,7 @@ function needsGigu() {
 
 function updateExtras() {
   const sk = needsKaigai(), sn = needsNaifuku(), sg = needsGigu();
-  tog('extra_kaigai', sk); if (!sk) { S.kaigai = null; clr('kaigai'); }
+  tog('extra_kaigai', sk); if (!sk) { S.kaigai = null;  clr('kaigai'); }
   tog('extra_naifuku', sn); if (!sn) { S.naifuku = null; clr('naifuku'); }
   tog('extra_gigu', sg);   if (!sg) { S.gigu = null;    clr('gigu'); }
 }
@@ -277,10 +283,12 @@ function judge() {
   const { step1, s2_1, s2_2, s2_3, kaigai, naifuku, gigu } = S;
   if (!step1 || !s2_1 || !s2_2 || !s2_3) { setWait(el); return; }
 
+  const isNew = step1 === 'nashi'; // 新規算定かどうか
+
   // ルートA
   if (step1 === 'ninchi') {
     show(el, 'theme-38', '✅', '認知症加算（38点）継続', '毎回の確認は不要です',
-      '引き続き38点を算定してください', '');
+      '引き続き38点を算定してください', '', false);
     return;
   }
 
@@ -291,71 +299,72 @@ function judge() {
     if (nk) {
       if (s2_2 !== 'nasi') {
         show(el, 'theme-chg38', '✅', '認知症加算（38点）に変更できます', '慢性疾患加算（28点）→ 認知症加算（38点）',
-          '28点 → 38点 に変更してください', '多剤制限は不問です');
+          '28点 → 38点 に変更してください', '多剤制限は不問です', false);
       } else {
         if (!kaigai) { setWait2(el, '❓', '追加確認が必要', '慢性5疾患以外の疾患をカルテで確認してください'); return; }
         if (kaigai === 'ari') {
           if (!naifuku) { setWait2(el, '❓', '追加確認が必要', '内服薬の種類数を確認してください'); return; }
           if (naifuku === '5ika') {
             show(el, 'theme-chg38', '✅', '認知症加算（38点）に変更できます', '慢性以外の疾患あり・内服5種以下の条件を満たします',
-              '28点 → 38点 に変更してください', '');
+              '28点 → 38点 に変更してください', '', false);
           } else {
             show(el, 'theme-keep28', '⚠️', '今回は変更できません', '内服6種以上のため38点の条件不足',
-              '28点のまま維持してください', '内服薬を整理できれば次回以降38点へ変更可能です');
+              '28点のまま維持してください', '内服薬を整理できれば次回以降38点へ変更可能です', false);
           }
         } else {
           show(el, 'theme-keep28', '⚠️', '今回は変更できません', '38点への変更条件が不足しています',
-            '28点のまま維持してください', '');
+            '28点のまま維持してください', '', false);
         }
       }
     } else {
       if (!gigu) { setWait2(el, '❓', '追加確認が必要', '認知症の疑いがあるかどうかを確認してください'); return; }
       if (gigu === 'ari') {
         show(el, 'theme-ask', '🧠', '認知症がないか確認してください', '認知症病名があれば38点に変更できます',
-          '長谷川式スコアを確認してください', '≦20点であれば認知症病名を追加し、28点 → 38点 に変更してください');
+          '長谷川式スコアを確認してください', '≦20点であれば認知症病名を追加し、28点 → 38点 に変更してください', false);
       } else {
         show(el, 'theme-keep28', '⚠️', '今回は変更できません', '28点の継続算定',
-          '28点のまま維持してください', '次回再評価をお願いします');
+          '28点のまま維持してください', '次回再評価をお願いします', false);
       }
     }
     return;
   }
 
-  // ルートC
+  // ルートC（新規）
   if (step1 === 'nashi') {
     if (nk) {
       if (s2_2 !== 'nasi') {
         show(el, 'theme-38', '✅', '認知症加算（38点）を算定できます', '今回から新規算定',
-          '今回から38点を算定してください', '多剤制限は不問です');
+          '今回から38点を算定してください', '多剤制限は不問です', true);
       } else {
         if (!kaigai) { setWait2(el, '❓', '追加確認が必要', '慢性5疾患以外の疾患をカルテで確認してください'); return; }
         if (kaigai === 'ari') {
           if (!naifuku) { setWait2(el, '❓', '追加確認が必要', '内服薬の種類数を確認してください'); return; }
           if (naifuku === '5ika') {
             show(el, 'theme-38', '✅', '認知症加算（38点）を算定できます', '慢性以外の疾患あり・内服5種以下の条件を満たします',
-              '今回から38点を算定してください', '');
-          } else { judge28(el, '38点の条件不足のため28点を確認'); }
-        } else { judge28(el, '38点の条件不足のため28点を確認'); }
+              '今回から38点を算定してください', '', true);
+          } else { judge28(el, '38点の条件不足のため28点を確認', true); }
+        } else { judge28(el, '38点の条件不足のため28点を確認', true); }
       }
-    } else { judge28(el, ''); }
+    } else { judge28(el, '', true); }
   }
 }
 
-function judge28(el, reason) {
+function judge28(el, reason, isNew) {
   const { s2_2, s2_3 } = S;
   if (s2_2 === '2shu') {
     show(el, 'theme-28', '✅', '慢性疾患加算（28点）を算定できます', reason || '慢性2種以上の条件を満たします',
-      '今回から28点を算定してください', '');
+      '今回から28点を算定してください', '', isNew);
   } else if (s2_2 === '1shu' && s2_3 === 'ari') {
-    show(el, 'theme-28', '✅', '慢性疾患加算（28点）を算定できます', (reason ? reason + '　' : '') + '慢性1種＋介護サービス利用の条件を満たします',
-      '今回から28点を算定してください', '');
+    show(el, 'theme-28', '✅', '慢性疾患加算（28点）を算定できます',
+      (reason ? reason + '　' : '') + '慢性1種＋介護サービス利用の条件を満たします',
+      '今回から28点を算定してください', '', isNew);
   } else {
     show(el, 'theme-none', '❌', '算定対象外', '慢性2種以上、または慢性1種＋介護の条件を満たしません',
-      '今回は加算を算定できません', '');
+      '今回は加算を算定できません', '', false);
   }
 }
 
-function show(el, theme, icon, main, sub, actText, actDetail) {
+function show(el, theme, icon, main, sub, actText, actDetail, showDousho) {
   el.className = `result-card ${theme}`;
   el.innerHTML = `
     <div class="res-head">
@@ -369,12 +378,20 @@ function show(el, theme, icon, main, sub, actText, actDetail) {
       <span class="act-label">▶ すべきこと</span>
       <div class="act-text">${actText}</div>
       ${actDetail ? `<div class="act-detail">${actDetail}</div>` : ''}
-    </div>`;
+    </div>
+    ${showDousho ? `
+    <div class="dousho">
+      <span class="dousho-icon">📝</span>
+      <span>同意書を作成してください</span>
+    </div>` : ''}`;
+
+  // 結果までスクロール
+  el.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
 function setWait(el) {
   el.className = 'result-card wait';
-  el.innerHTML = `<span class="wait-icon">🔍</span>受付票の項目を選択してください`;
+  el.innerHTML = `<span class="wait-icon">🔍</span>上の項目をすべて選択すると結果が表示されます`;
 }
 
 function setWait2(el, icon, main, detail) {
@@ -388,6 +405,7 @@ function setWait2(el, icon, main, detail) {
       <span class="act-label">▶ すべきこと</span>
       <div class="act-text">${detail}</div>
     </div>`;
+  el.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
 function resetAll() {
@@ -395,6 +413,7 @@ function resetAll() {
   document.querySelectorAll('.sel-btn').forEach(b => b.className = 'sel-btn');
   document.querySelectorAll('.extra').forEach(e => e.classList.remove('show'));
   setWait(document.getElementById('result'));
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 </script>
 </body>
