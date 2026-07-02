@@ -289,22 +289,23 @@ function sel(btn) {
 }
 
 // 追加確認：慢性5疾患以外の疾患
-// → 認知症あり + 慢性なし の場合のみ（38点の別ルート確認）
+// → 認知症あり+慢性なし、または 介護あり+慢性なし の場合（38点の別ルート確認）
 function needsKaigai() {
   return (S.step1 === 'mansho' || S.step1 === 'nashi')
-      && S.s2_1 === 'ari'
-      && S.s2_2 === 'nasi';
+      && S.s2_2 === 'nasi'
+      && (S.s2_1 === 'ari' || S.s2_3 === 'ari');
 }
 function needsNaifuku() { return needsKaigai() && S.kaigai === 'ari'; }
 
 // 追加確認：認知症の疑い
-// → 28点算定中 + 認知症なし + 慢性5疾患の28点条件を満たさない場合
+// → 28点算定中 + 認知症なし + 介護なし + 慢性条件不足の場合のみ
 function needsGigu() {
   if (S.step1 !== 'mansho' || S.s2_1 !== 'nasi') return false;
   if (!S.s2_2 || !S.s2_3) return false;
   const mc = S.s2_2 === '2shu' ? 2 : (S.s2_2 === '1shu' ? 1 : 0);
-  const meets28 = mc >= 2 || (mc >= 1 && S.s2_3 === 'ari');
-  return !meets28;
+  if (mc >= 2 || (mc >= 1 && S.s2_3 === 'ari')) return false;  // 28点条件OK
+  if (S.s2_3 === 'ari') return false;  // 介護あり→kaigaiルートへ
+  return true;
 }
 
 function updateExtras() {
@@ -365,8 +366,34 @@ function judge() {
       } else if (mc >= 1 && s2_3 === 'ari') {
         show(el, 'theme-keep28', '⚠️', '慢性疾患加算（28点）継続', '慢性5疾患1種＋介護サービス利用の条件を満たしています',
           '28点のまま継続してください', '', false);
+      } else if (s2_2 === 'nasi' && s2_3 === 'ari') {
+        // 慢性なし + 介護あり → 他疾患で38点への変更を確認
+        if (!kaigai) { setWait2(el, '❓', '追加確認が必要', '慢性5疾患以外の疾患をカルテで確認してください'); return; }
+        if (kaigai === 'ari') {
+          if (!naifuku) { setWait2(el, '❓', '追加確認が必要', '内服薬の種類数を確認してください'); return; }
+          if (naifuku === '5ika') {
+            show(el, 'theme-chg38', '✅', '認知症加算（38点）に変更できます',
+              '介護サービス利用＋他疾患あり＋内服5種以下の条件を満たします',
+              '28点 → 38点 に変更してください', '', false);
+          } else {
+            show(el, 'theme-keep28', '⚠️', '今回は変更できません', '内服6種以上のため38点の条件不足',
+              '28点のまま維持してください', '内服薬を整理できれば次回以降38点へ変更可能です', false);
+          }
+        } else {
+          // 他疾患なし → 認知症疑い確認
+          if (!gigu) { setWait2(el, '❓', '追加確認が必要', '認知症の疑いがあるかどうかを確認してください'); return; }
+          if (gigu === 'ari') {
+            show(el, 'theme-ask', '🧠', '認知症がないか確認してください',
+              '認知症病名があれば38点（加算1）に変更できます',
+              '長谷川式スコアを確認してください',
+              '≦20点であれば認知症病名を追加し、28点 → 38点 に変更してください', false);
+          } else {
+            show(el, 'theme-keep28', '⚠️', '今回は変更できません', '28点継続算定',
+              '28点のまま維持してください', '次回再評価をお願いします', false);
+          }
+        }
       } else {
-        // 28点条件を満たさない → 認知症の疑いを確認
+        // 慢性なし + 介護なし → 認知症の疑いを確認
         if (!gigu) { setWait2(el, '❓', '追加確認が必要', '認知症の疑いがあるかどうかを確認してください'); return; }
         if (gigu === 'ari') {
           show(el, 'theme-ask', '🧠', '認知症がないか確認してください',
@@ -411,7 +438,24 @@ function judge() {
       }
     } else {
       // 認知症なし → 慢性5疾患の28点条件を確認（加算2）
-      judge28(el, '', true);
+      if (s2_2 === 'nasi' && s2_3 === 'ari') {
+        // 介護あり + 慢性なし → 他疾患で38点算定を確認
+        if (!kaigai) { setWait2(el, '❓', '追加確認が必要', '慢性5疾患以外の疾患をカルテで確認してください'); return; }
+        if (kaigai === 'ari') {
+          if (!naifuku) { setWait2(el, '❓', '追加確認が必要', '内服薬の種類数を確認してください'); return; }
+          if (naifuku === '5ika') {
+            show(el, 'theme-38', '✅', '認知症加算（38点）を算定できます',
+              '介護サービス利用＋他疾患あり＋内服5種以下の条件を満たします',
+              '今回から38点を算定してください', '', true);
+          } else {
+            judge28(el, '介護あり・他疾患あり・内服6種以上のため38点不可', true);
+          }
+        } else {
+          judge28(el, '', true);
+        }
+      } else {
+        judge28(el, '', true);
+      }
     }
   }
 }
